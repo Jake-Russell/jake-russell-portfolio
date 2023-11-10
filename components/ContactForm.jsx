@@ -36,7 +36,15 @@ const ContactForm = () => {
             <BsFillCheckSquareFill /> Form has been submitted successfully
           </p>
         )}
-        <button onClick={onSubmit} className="w-full p-4 text-gray-100 mt-4">
+        <button
+          disabled={!methods.formState.isValid}
+          onClick={onSubmit}
+          className={`w-full p-4 text-gray-100 mt-4 ${
+            !methods.formState.isValid
+              ? 'bg-gray-500'
+              : 'bg-gradient-to-r from-[#5651e5] to-[#709dff]'
+          }`}
+        >
           Send Message
         </button>
       </form>
