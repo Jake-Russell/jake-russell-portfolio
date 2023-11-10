@@ -13,7 +13,7 @@ const ContactForm = () => {
   return (
     <FormProvider {...methods}>
       <form onSubmit={(e) => e.preventDefault()} noValidate>
-        <div class="grid md:grid-cols-2 gap-4 w-full py-2">
+        <div className="grid md:grid-cols-2 gap-4 w-full py-2">
           <Input
             label="name"
             type="text"
@@ -22,7 +22,7 @@ const ContactForm = () => {
           />
           <Input
             label="phone number"
-            type="text"
+            type="tel"
             id="phone-number"
             placeholder="Type your phone number..."
           />
@@ -42,12 +42,6 @@ const ContactForm = () => {
           placeholder="Type your subject..."
         />
 
-        <Input
-          label="name"
-          type="text"
-          id="name"
-          placeholder="Type your name..."
-        />
         <Input
           label="message"
           id="message"
