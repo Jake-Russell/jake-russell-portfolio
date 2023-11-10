@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { MdError } from 'react-icons/md';
 import React from 'react';
 
-const Input = ({ label, type, id, placeholder }) => {
+const Input = ({ label, type, id, placeholder, validation, name }) => {
   const {
     register,
     formState: { errors },
@@ -23,7 +23,7 @@ const Input = ({ label, type, id, placeholder }) => {
     return false;
   };
 
-  const inputError = findInputError(errors, label);
+  const inputError = findInputError(errors, name);
   const isInvalid = isFormInvalid(inputError);
 
   return (
@@ -47,12 +47,7 @@ const Input = ({ label, type, id, placeholder }) => {
           type={type}
           className="border-2 rounded-lg p-3 flex border-gray-300"
           placeholder={placeholder}
-          {...register(label, {
-            required: {
-              value: true,
-              message: 'required',
-            },
-          })}
+          {...register(name, validation)}
         />
       ) : (
         <textarea
@@ -60,6 +55,7 @@ const Input = ({ label, type, id, placeholder }) => {
           rows={10}
           className="border-2 rounded-lg p-3 border-gray-300"
           placeholder={placeholder}
+          {...register(name, validation)}
         />
       )}
     </div>
