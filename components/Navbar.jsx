@@ -12,9 +12,10 @@ const Navbar = () => {
     setNav(!nav);
   };
   return (
-    <div className="fixed w-full h-20 shadow-xl z-[100]">
+    <div className="fixed w-full h-20 shadow-xl z-[100] bg-gray-50">
       <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
-        <Image src="/assets/logo.png" alt="Logo" width="125" height="50" />
+        {/* <Image src="/assets/logo.png" alt="Logo" width="125" height="50" /> */}
+        <p>Jake Russell</p>
         <div>
           <ul className="hidden md:flex">
             <Link href="/">
@@ -53,13 +54,14 @@ const Navbar = () => {
         <div
           className={
             nav
-              ? "fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-300"
-              : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
+              ? "fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-gray-50 p-10 ease-in duration-300"
+              : "fixed left-[-100%] top-0 h-screen p-10 ease-in duration-300"
           }
         >
           <div>
             <div className="flex w-full items-center justify-between">
-              <Image src="/assets/logo.png" alt="Logo" width={87} height={35} />
+              {/* <Image src="/assets/logo.png" alt="Logo" width={87} height={35} /> */}
+              <p>Jake Russell</p>
               <div
                 onClick={handleNav}
                 className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer"
