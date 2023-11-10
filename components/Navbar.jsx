@@ -4,10 +4,24 @@ import React, { useState, useEffect } from "react";
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
+  const [navBg, setNavBg] = useState("#ecf0f3");
+  const [linkColour, setLinkColour] = useState("#1f2937");
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.asPath !== "/" && !router.asPath.startsWith("/#")) {
+      setNavBg("transparent");
+      setLinkColour("#ecf0f3");
+    } else {
+      setNavBg("#ecf0f3");
+      setLinkColour("#1f2937");
+    }
+  }, [router]);
 
   const handleNav = () => {
     setNav(!nav);
@@ -26,6 +40,9 @@ const Navbar = () => {
 
   return (
     <div
+      style={{
+        backgroundColor: `${navBg}`,
+      }}
       className={
         shadow
           ? "fixed w-full h-20 shadow-xl z-[100]"
@@ -39,7 +56,7 @@ const Navbar = () => {
         </Link>
 
         <div>
-          <ul className="hidden md:flex">
+          <ul style={{ color: `${linkColour}` }} className="hidden md:flex">
             <Link href="/">
               <li className="ml-10 text-sm uppercase hover:border-b">Home</li>
             </Link>
@@ -60,7 +77,11 @@ const Navbar = () => {
               </li>
             </Link>
           </ul>
-          <div onClick={handleNav} className="md:hidden">
+          <div
+            style={{ color: `${linkColour}` }}
+            onClick={handleNav}
+            className="md:hidden hover:cursor-pointer"
+          >
             <AiOutlineMenu size={25} />
           </div>
         </div>
