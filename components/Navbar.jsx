@@ -83,7 +83,10 @@ const Navbar = () => {
           <div>
             <div className="flex w-full items-center justify-between">
               {/* <Image src="/assets/logo.png" alt="Logo" width={87} height={35} /> */}
-              <p>Jake Russell</p>
+              <Link href="/">
+                <p>Jake Russell</p>
+              </Link>
+
               <div
                 onClick={handleNav}
                 className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer"
@@ -100,11 +103,29 @@ const Navbar = () => {
           <div className="py-4 flex flex-col">
             <ul className="uppercase">
               <Link href="/">
-                <li className="py-4 text-sm">Home</li>
-                <li className="py-4 text-sm">About</li>
-                <li className="py-4 text-sm">Skills</li>
-                <li className="py-4 text-sm">Projects</li>
-                <li className="py-4 text-sm">Contact</li>
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Home
+                </li>
+              </Link>
+              <Link href="/#about">
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  About
+                </li>
+              </Link>
+              <Link href="/#skills">
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Skills
+                </li>
+              </Link>
+              <Link href="/#projects">
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Projects
+                </li>
+              </Link>
+              <Link href="/#contact">
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Contact
+                </li>
               </Link>
             </ul>
             <div className="pt-40">
