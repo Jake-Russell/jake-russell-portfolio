@@ -37,7 +37,7 @@ const ContactForm = () => {
           </p>
         )}
         <button
-          disabled={!methods.formState.isValid}
+          // disabled={!methods.formState.isValid}
           onClick={onSubmit}
           className={`w-full p-4 text-gray-100 mt-4 ${
             !methods.formState.isValid
