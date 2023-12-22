@@ -39,7 +39,6 @@ const ContactForm = () => {
 
   const isFormValid =
     isNotEmpty(nameValue) &&
-    isNotEmpty(phoneNumberValue) &&
     isNotEmpty(emailValue) &&
     isEmail(emailValue) &&
     isNotEmpty(subjectValue) &&
@@ -51,7 +50,6 @@ const ContactForm = () => {
     alert(`Thank you for submitting the form ${nameValue}`);
 
     resetName();
-    resetPhoneNumber();
     resetEmail();
     resetSubject();
     resetMessage();
