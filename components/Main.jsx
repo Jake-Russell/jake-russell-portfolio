@@ -1,9 +1,5 @@
-import Link from 'next/link';
-import React from 'react';
-import { AiOutlineMail } from 'react-icons/ai';
-import { BsFillPersonLinesFill } from 'react-icons/bs';
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
-import ExternalLinks from './ExternalLinks';
+import React from "react";
+import ExternalLinks from "./ExternalLinks";
 
 const Main = () => {
   return (

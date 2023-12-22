@@ -4,9 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import contactImage from "../public/assets/star_trails_great_coxwell.jpg";
 
-import { AiOutlineMail } from "react-icons/ai";
-import { BsFillPersonLinesFill } from "react-icons/bs";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import ContactForm from "./ContactForm";
 import ExternalLinks from "./ExternalLinks";
