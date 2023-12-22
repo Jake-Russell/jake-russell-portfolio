@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import contactImage from '../public/assets/star_trails_great_coxwell.jpg';
+import Image from "next/image";
+import Link from "next/link";
+import contactImage from "../public/assets/star_trails_great_coxwell.jpg";
 
-import { AiOutlineMail } from 'react-icons/ai';
-import { BsFillPersonLinesFill } from 'react-icons/bs';
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
-import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
-import ContactForm from './ContactForm';
-import ExternalLinks from './ExternalLinks';
+import { AiOutlineMail } from "react-icons/ai";
+import { BsFillPersonLinesFill } from "react-icons/bs";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { HiOutlineChevronDoubleUp } from "react-icons/hi";
+import ContactForm from "./ContactForm";
+import ExternalLinks from "./ExternalLinks";
 
 const Contact = () => {
   return (
@@ -23,14 +23,10 @@ const Contact = () => {
           <div className="col-span-3 lg:col-span-2 w-full h-full shadow-xl shadow-gray-400 rounded-xl p-4">
             <div className="lg:p-4 h-full">
               <div>
-                <Image
-                  className="rounded-xl hover:scale-105 ease-in duration-300"
-                  src={contactImage}
-                  alt="/"
-                />
+                <Image className="rounded-xl" src={contactImage} alt="/" />
               </div>
               <div>
-                <h2 className="py-2">Name here</h2>
+                <h2 className="py-2">Jake Russell</h2>
                 <p>Full Stack Developer</p>
                 <p className="py-4">
                   I am available for freelance or full-time positions. Contact

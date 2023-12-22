@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import aboutImage from '../public/assets/star_trails_great_coxwell.jpg';
-import React from 'react';
-import Link from 'next/link';
+import Image from "next/image";
+import aboutImage from "../public/assets/star_trails_great_coxwell.jpg";
+import React from "react";
+import Link from "next/link";
 
 const About = () => {
   return (
@@ -30,7 +30,7 @@ const About = () => {
             </p>
           </Link>
         </div>
-        <div className="w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center p-4 hover:scale-105 ease-in duration-300">
+        <div className="w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center p-4">
           <Image className="rounded-xl" src={aboutImage} alt="Logo" />
         </div>
       </div>
