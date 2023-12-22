@@ -1,54 +1,116 @@
-import { FormProvider, useForm } from 'react-hook-form';
-import {
-  name_validation,
-  phone_number_validation,
-  email_validation,
-  subject_validation,
-  message_validation,
-} from '../utils/inputValidations';
+import { isEmail, isNotEmpty } from "../utils/inputValidations";
 
-import React, { useState } from 'react';
-import { BsFillCheckSquareFill } from 'react-icons/bs';
-import Input from './Input';
+import React from "react";
+import { useInput } from "../hooks/useInput";
+import Input from "./Input";
 
 const ContactForm = () => {
-  const methods = useForm();
-  const [success, setSuccess] = useState(false);
+  const {
+    value: nameValue,
+    handleInputChange: handleNameChange,
+    handleInputBlur: handleNameBlur,
+    hasError: nameHasError,
+    handleReset: resetName,
+  } = useInput("", (value) => isNotEmpty(value));
 
-  const onSubmit = methods.handleSubmit((data) => {
-    console.log(data);
-    methods.reset();
-    setSuccess(true);
-  });
+  const {
+    value: emailValue,
+    handleInputChange: handleEmailChange,
+    handleInputBlur: handleEmailBlur,
+    hasError: emailHasError,
+    handleReset: resetEmail,
+  } = useInput("", (value) => isEmail(value) && isNotEmpty(value));
+
+  const {
+    value: subjectValue,
+    handleInputChange: handleSubjectChange,
+    handleInputBlur: handleSubjectBlur,
+    hasError: subjectHasError,
+    handleReset: resetSubject,
+  } = useInput("", (value) => isNotEmpty(value));
+
+  const {
+    value: messageValue,
+    handleInputChange: handleMessageChange,
+    handleInputBlur: handleMessageBlur,
+    hasError: messageHasError,
+    handleReset: resetMessage,
+  } = useInput("", (value) => isNotEmpty(value));
+
+  const isFormValid =
+    isNotEmpty(nameValue) &&
+    isNotEmpty(phoneNumberValue) &&
+    isNotEmpty(emailValue) &&
+    isEmail(emailValue) &&
+    isNotEmpty(subjectValue) &&
+    isNotEmpty(messageValue);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    alert(`Thank you for submitting the form ${nameValue}`);
+
+    resetName();
+    resetPhoneNumber();
+    resetEmail();
+    resetSubject();
+    resetMessage();
+  };
 
   return (
-    <FormProvider {...methods}>
-      <form onSubmit={(e) => e.preventDefault()} noValidate>
-        <div className="grid md:grid-cols-2 gap-4 w-full py-2">
-          <Input {...name_validation} />
-          <Input {...phone_number_validation} />
-        </div>
-        <Input {...email_validation} />
-        <Input {...subject_validation} />
-        <Input {...message_validation} />
-        {success && (
-          <p className="flex items-center gap-1 mb-5 font-semibold text-green-500">
-            <BsFillCheckSquareFill /> Form has been submitted successfully
-          </p>
-        )}
-        <button
-          // disabled={!methods.formState.isValid}
-          onClick={onSubmit}
-          className={`w-full p-4 text-gray-100 mt-4 ${
-            !methods.formState.isValid
-              ? 'bg-gray-500'
-              : 'bg-gradient-to-r from-[#5651e5] to-[#709dff]'
-          }`}
-        >
-          Send Message
-        </button>
-      </form>
-    </FormProvider>
+    <form onSubmit={handleSubmit}>
+      <div className="grid md:grid-cols-2 gap-4 w-full py-2">
+        <Input
+          label={"Name"}
+          id={"name"}
+          onBlur={handleNameBlur}
+          onChange={handleNameChange}
+          value={nameValue}
+          error={nameHasError && "Please enter a valid name."}
+        />
+
+        <Input
+          label={"Email"}
+          id={"email"}
+          type="email"
+          onBlur={handleEmailBlur}
+          onChange={handleEmailChange}
+          value={emailValue}
+          error={emailHasError && "Please enter a valid email address."}
+        />
+      </div>
+
+      <Input
+        label={"Subject"}
+        id={"subject"}
+        onBlur={handleSubjectBlur}
+        onChange={handleSubjectChange}
+        value={subjectValue}
+        error={subjectHasError && "Please enter a valid subject."}
+      />
+
+      <Input
+        label={"Message"}
+        id={"message"}
+        isTextArea
+        onBlur={handleMessageBlur}
+        onChange={handleMessageChange}
+        value={messageValue}
+        error={messageHasError && "Please enter a valid message."}
+      />
+
+      <button
+        disabled={!isFormValid}
+        onClick={handleSubmit}
+        className={`w-full p-4 text-gray-100 mt-4 ${
+          !isFormValid
+            ? "bg-gray-500"
+            : "bg-gradient-to-r from-[#5651e5] to-[#709dff]"
+        }`}
+      >
+        Send Message
+      </button>
+    </form>
   );
 };
 

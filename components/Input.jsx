@@ -1,84 +1,39 @@
-import { useFormContext } from 'react-hook-form';
-import { AnimatePresence, motion } from 'framer-motion';
-import { MdError } from 'react-icons/md';
-import React from 'react';
+import React from "react";
 
-const Input = ({ label, type, id, placeholder, validation, name }) => {
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext();
-
-  function findInputError(errors, name) {
-    const filtered = Object.keys(errors)
-      .filter((key) => key.includes(name))
-      .reduce((cur, key) => {
-        return Object.assign(cur, { error: errors[key] });
-      }, {});
-    return filtered;
-  }
-
-  const isFormInvalid = (err) => {
-    if (Object.keys(err).length > 0) return true;
-    return false;
-  };
-
-  const inputError = findInputError(errors, name);
-  const isInvalid = isFormInvalid(inputError);
-
+const Input = ({ label, id, type = "text", isTextArea, error, ...props }) => {
   return (
     <div className="flex flex-col py-2">
-      <div className="flex justify-between">
-        <label htmlFor={id} className="uppercase text-sm py-2">
-          {label}
-        </label>
-        <AnimatePresence mode="wait" initial={false}>
-          {isInvalid && (
-            <InputError
-              message={inputError.error.message}
-              key={inputError.error.message}
-            />
-          )}
-        </AnimatePresence>
-      </div>
-      {type ? (
-        <input
-          id={id}
-          type={type}
-          className="border-2 rounded-lg p-3 flex border-gray-300"
-          placeholder={placeholder}
-          {...register(name, validation)}
-        />
-      ) : (
+      <label htmlFor={id} className="uppercase text-sm py-2">
+        {label}
+      </label>
+      {isTextArea ? (
         <textarea
           id={id}
           rows={10}
-          className="border-2 rounded-lg p-3 border-gray-300"
-          placeholder={placeholder}
-          {...register(name, validation)}
+          placeholder={`Please enter your ${label.toLowerCase()}...`}
+          required
+          {...props}
+          className={`border-2 rounded-lg p-3 border-gray-300 ${
+            error && "border-red-500"
+          }`}
+        />
+      ) : (
+        <input
+          id={id}
+          name={id}
+          type={type}
+          placeholder={`Please enter your ${label.toLowerCase()}...`}
+          required
+          {...props}
+          className={`border-2 rounded-lg p-3 flex border-gray-300 ${
+            error && "border-red-500"
+          }`}
         />
       )}
+
+      {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
     </div>
   );
-};
-
-const InputError = ({ message }) => {
-  return (
-    <motion.p
-      className="flex items-center gap-1 px-2 font-semibold text-red-500 bg-red-100 rounded-md"
-      {...framer_error}
-    >
-      <MdError />
-      {message}
-    </motion.p>
-  );
-};
-
-const framer_error = {
-  initial: { opacity: 0, y: 10 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: 10 },
-  transition: { duration: 0.2 },
 };
 
 export default Input;
