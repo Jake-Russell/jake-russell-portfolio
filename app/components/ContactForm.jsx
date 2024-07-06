@@ -1,8 +1,8 @@
-import { isEmail, isNotEmpty } from "../utils/inputValidations";
-
-import React from "react";
-import { useInput } from "../hooks/useInput";
-import Input from "./Input";
+import React from 'react';
+import { useInput } from '../hooks/useInput';
+import Input from './Input';
+import { isEmail, isNotEmpty } from '../utils/inputValidations';
+import { sendContactForm } from '../lib/api';
 
 const ContactForm = () => {
   const {
@@ -11,7 +11,7 @@ const ContactForm = () => {
     handleInputBlur: handleNameBlur,
     hasError: nameHasError,
     handleReset: resetName,
-  } = useInput("", (value) => isNotEmpty(value));
+  } = useInput('', (value) => isNotEmpty(value));
 
   const {
     value: emailValue,
@@ -19,7 +19,7 @@ const ContactForm = () => {
     handleInputBlur: handleEmailBlur,
     hasError: emailHasError,
     handleReset: resetEmail,
-  } = useInput("", (value) => isEmail(value) && isNotEmpty(value));
+  } = useInput('', (value) => isEmail(value) && isNotEmpty(value));
 
   const {
     value: subjectValue,
@@ -27,7 +27,7 @@ const ContactForm = () => {
     handleInputBlur: handleSubjectBlur,
     hasError: subjectHasError,
     handleReset: resetSubject,
-  } = useInput("", (value) => isNotEmpty(value));
+  } = useInput('', (value) => isNotEmpty(value));
 
   const {
     value: messageValue,
@@ -35,7 +35,7 @@ const ContactForm = () => {
     handleInputBlur: handleMessageBlur,
     hasError: messageHasError,
     handleReset: resetMessage,
-  } = useInput("", (value) => isNotEmpty(value));
+  } = useInput('', (value) => isNotEmpty(value));
 
   const isFormValid =
     isNotEmpty(nameValue) &&
@@ -44,57 +44,75 @@ const ContactForm = () => {
     isNotEmpty(subjectValue) &&
     isNotEmpty(messageValue);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    alert(`Thank you for submitting the form ${nameValue}`);
+    await sendContactForm({
+      name: nameValue,
+      email: emailValue,
+      subject: subjectValue,
+      message: messageValue,
+    });
 
-    resetName();
-    resetEmail();
-    resetSubject();
-    resetMessage();
+    // try {
+    //   await axios.post('http://localhost:5001/send', {
+    // name: nameValue,
+    // email: emailValue,
+    // subject: subjectValue,
+    // message: messageValue,
+    //   });
+
+    //   alert(`Thank you for submitting the form ${nameValue}`);
+
+    //   resetName();
+    //   resetEmail();
+    //   resetSubject();
+    //   resetMessage();
+    // } catch (error) {
+    //   alert('There was an error sending your message. Please try again later.');
+    // }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="grid md:grid-cols-2 gap-4 w-full py-2">
         <Input
-          label={"Name"}
-          id={"name"}
+          label={'Name'}
+          id={'name'}
           onBlur={handleNameBlur}
           onChange={handleNameChange}
           value={nameValue}
-          error={nameHasError && "Please enter a valid name."}
+          error={nameHasError && 'Please enter a valid name.'}
         />
 
         <Input
-          label={"Email"}
-          id={"email"}
+          label={'Email'}
+          id={'email'}
           type="email"
           onBlur={handleEmailBlur}
           onChange={handleEmailChange}
           value={emailValue}
-          error={emailHasError && "Please enter a valid email address."}
+          error={emailHasError && 'Please enter a valid email address.'}
         />
       </div>
 
       <Input
-        label={"Subject"}
-        id={"subject"}
+        label={'Subject'}
+        id={'subject'}
         onBlur={handleSubjectBlur}
         onChange={handleSubjectChange}
         value={subjectValue}
-        error={subjectHasError && "Please enter a valid subject."}
+        error={subjectHasError && 'Please enter a valid subject.'}
       />
 
       <Input
-        label={"Message"}
-        id={"message"}
+        label={'Message'}
+        id={'message'}
         isTextArea
         onBlur={handleMessageBlur}
         onChange={handleMessageChange}
         value={messageValue}
-        error={messageHasError && "Please enter a valid message."}
+        error={messageHasError && 'Please enter a valid message.'}
       />
 
       <button
@@ -102,8 +120,8 @@ const ContactForm = () => {
         onClick={handleSubmit}
         className={`w-full p-4 text-gray-100 mt-4 ${
           !isFormValid
-            ? "bg-gray-500"
-            : "bg-gradient-to-r from-[#5651e5] to-[#709dff]"
+            ? 'bg-gray-500'
+            : 'bg-gradient-to-r from-[#5651e5] to-[#709dff]'
         }`}
       >
         Send Message
