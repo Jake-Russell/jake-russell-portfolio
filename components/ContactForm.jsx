@@ -47,30 +47,20 @@ const ContactForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    await sendContactForm({
-      name: nameValue,
-      email: emailValue,
-      subject: subjectValue,
-      message: messageValue,
-    });
-
-    // try {
-    //   await axios.post('http://localhost:5001/send', {
-    // name: nameValue,
-    // email: emailValue,
-    // subject: subjectValue,
-    // message: messageValue,
-    //   });
-
-    //   alert(`Thank you for submitting the form ${nameValue}`);
-
-    //   resetName();
-    //   resetEmail();
-    //   resetSubject();
-    //   resetMessage();
-    // } catch (error) {
-    //   alert('There was an error sending your message. Please try again later.');
-    // }
+    try {
+      await sendContactForm({
+        name: nameValue,
+        email: emailValue,
+        subject: subjectValue,
+        message: messageValue,
+      });
+      resetName();
+      resetEmail();
+      resetSubject();
+      resetMessage();
+    } catch (error) {
+      console.error(`Error message: ${error.messageValue}`);
+    }
   };
 
   return (
