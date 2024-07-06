@@ -115,7 +115,7 @@ const ContactForm = () => {
       <Button
         isDisabled={!isFormValid}
         onClick={handleSubmit}
-        content="Send Message New Button"
+        content="Send Message"
         processingText="Submitting..."
         isProcessing={isFormSubmitting}
       />
