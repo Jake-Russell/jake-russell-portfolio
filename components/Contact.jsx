@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import Image from "next/image";
-import Link from "next/link";
-import contactImage from "../public/assets/star_trails_great_coxwell.jpg";
+import Image from 'next/image';
+import Link from 'next/link';
+import contactImage from '../public/assets/star_trails_great_coxwell.jpg';
 
-import { HiOutlineChevronDoubleUp } from "react-icons/hi";
-import ContactForm from "./ContactForm";
-import ExternalLinks from "./ExternalLinks";
+import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
+import ContactForm from './ContactForm';
+import ExternalLinks from './ExternalLinks';
 
 const Contact = () => {
   return (
@@ -27,7 +27,7 @@ const Contact = () => {
                 <p>Full Stack Developer</p>
                 <p className="py-4">
                   I am available for freelance or full-time positions. Contact
-                  me and let's talk.
+                  me and let&apos;s talk.
                 </p>
               </div>
               <div>
