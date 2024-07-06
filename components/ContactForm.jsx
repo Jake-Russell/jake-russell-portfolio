@@ -1,6 +1,7 @@
 import React from 'react';
 import { useInput } from '../hooks/useInput';
 import Input from './Input';
+import Button from './Button';
 import { isEmail, isNotEmpty } from '../utils/inputValidations';
 import { sendContactForm } from '../lib/api';
 
@@ -105,17 +106,11 @@ const ContactForm = () => {
         error={messageHasError && 'Please enter a valid message.'}
       />
 
-      <button
-        disabled={!isFormValid}
+      <Button
+        isDisabled={!isFormValid}
         onClick={handleSubmit}
-        className={`w-full p-4 text-gray-100 mt-4 ${
-          !isFormValid
-            ? 'bg-gray-500'
-            : 'bg-gradient-to-r from-[#5651e5] to-[#709dff]'
-        }`}
-      >
-        Send Message
-      </button>
+        content="Send Message New Button"
+      />
     </form>
   );
 };
