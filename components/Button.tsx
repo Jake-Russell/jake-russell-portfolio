@@ -2,11 +2,19 @@ import React from 'react';
 
 type ButtonProps = {
   isDisabled: boolean;
+  isProcessing: boolean;
   onClick: () => void;
   content: string;
+  processingText: string;
 };
 
-const Button: React.FC<ButtonProps> = ({ isDisabled, onClick, content }) => {
+const Button: React.FC<ButtonProps> = ({
+  isDisabled,
+  isProcessing,
+  onClick,
+  content,
+  processingText,
+}) => {
   return (
     <button
       disabled={isDisabled}
@@ -17,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({ isDisabled, onClick, content }) => {
           : 'bg-gradient-to-r from-[#5651e5] to-[#709dff]'
       }`}
     >
-      {content}
+      {isProcessing ? processingText : content}
     </button>
   );
 };

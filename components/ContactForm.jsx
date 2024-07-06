@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useInput } from '../hooks/useInput';
 import Input from './Input';
 import Button from './Button';
@@ -6,6 +6,8 @@ import { isEmail, isNotEmpty } from '../utils/inputValidations';
 import { sendContactForm } from '../lib/api';
 
 const ContactForm = () => {
+  const [isFormSubmitting, setIsFormSubmitting] = useState(false);
+
   const {
     value: nameValue,
     handleInputChange: handleNameChange,
@@ -47,6 +49,7 @@ const ContactForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsFormSubmitting(true);
 
     try {
       await sendContactForm({
@@ -59,8 +62,11 @@ const ContactForm = () => {
       resetEmail();
       resetSubject();
       resetMessage();
+
+      setIsFormSubmitting(false);
     } catch (error) {
       console.error(`Error message: ${error.messageValue}`);
+      setIsFormSubmitting(false);
     }
   };
 
@@ -110,6 +116,8 @@ const ContactForm = () => {
         isDisabled={!isFormValid}
         onClick={handleSubmit}
         content="Send Message New Button"
+        processingText="Submitting..."
+        isProcessing={isFormSubmitting}
       />
     </form>
   );
