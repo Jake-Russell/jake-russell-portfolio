@@ -2,9 +2,9 @@ import React from 'react';
 import { ButtonProps } from './types';
 
 const Button: React.FC<ButtonProps> = ({
-  isDisabled,
-  isProcessing,
   content,
+  isDisabled = false,
+  isProcessing = false,
   processingText,
   onClick,
 }) => {
@@ -18,7 +18,7 @@ const Button: React.FC<ButtonProps> = ({
           : 'bg-gradient-to-r from-[#5651e5] to-[#709dff]'
       }`}
     >
-      {isProcessing ? processingText : content}
+      {isProcessing && processingText ? processingText : content}
     </button>
   );
 };
