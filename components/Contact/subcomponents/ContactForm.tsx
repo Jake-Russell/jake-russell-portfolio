@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { useInput } from '../hooks/useInput';
-import Input from './Input';
-import Button from './Button';
-import { isEmail, isNotEmpty } from '../utils/inputValidations';
-import { sendContactForm } from '../lib/api';
+import React, { FormEvent, useState } from 'react';
+import { useInput } from '../../../hooks/useInput';
+import Input from '../../Shared/Input';
+import Button from '../../Shared/Button';
+import { isEmail, isNotEmpty } from '../../../utils/inputValidations';
+import { sendContactForm } from '../../../lib/api';
 
-const ContactForm = () => {
+const ContactForm: React.FC = () => {
   const [isFormSubmitting, setIsFormSubmitting] = useState(false);
 
   const {
@@ -47,7 +47,7 @@ const ContactForm = () => {
     isNotEmpty(subjectValue) &&
     isNotEmpty(messageValue);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsFormSubmitting(true);
 
@@ -64,7 +64,7 @@ const ContactForm = () => {
       resetMessage();
 
       setIsFormSubmitting(false);
-    } catch (error) {
+    } catch (error: any) {
       console.error(`Error message: ${error.messageValue}`);
       setIsFormSubmitting(false);
     }
@@ -79,7 +79,7 @@ const ContactForm = () => {
           onBlur={handleNameBlur}
           onChange={handleNameChange}
           value={nameValue}
-          error={nameHasError && 'Please enter a valid name.'}
+          error={nameHasError ? 'Please enter a valid name.' : undefined}
         />
 
         <Input
@@ -89,7 +89,9 @@ const ContactForm = () => {
           onBlur={handleEmailBlur}
           onChange={handleEmailChange}
           value={emailValue}
-          error={emailHasError && 'Please enter a valid email address.'}
+          error={
+            emailHasError ? 'Please enter a valid email address.' : undefined
+          }
         />
       </div>
 
@@ -99,7 +101,7 @@ const ContactForm = () => {
         onBlur={handleSubjectBlur}
         onChange={handleSubjectChange}
         value={subjectValue}
-        error={subjectHasError && 'Please enter a valid subject.'}
+        error={subjectHasError ? 'Please enter a valid subject.' : undefined}
       />
 
       <Input
@@ -109,12 +111,11 @@ const ContactForm = () => {
         onBlur={handleMessageBlur}
         onChange={handleMessageChange}
         value={messageValue}
-        error={messageHasError && 'Please enter a valid message.'}
+        error={messageHasError ? 'Please enter a valid message.' : undefined}
       />
 
       <Button
         isDisabled={!isFormValid}
-        onClick={handleSubmit}
         content="Send Message"
         processingText="Submitting..."
         isProcessing={isFormSubmitting}

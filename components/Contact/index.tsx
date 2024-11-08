@@ -2,13 +2,13 @@ import React from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import contactImage from '../public/assets/star_trails_great_coxwell.jpg';
+import contactImage from '../../public/assets/star_trails_great_coxwell.jpg';
 
 import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
-import ContactForm from './ContactForm';
-import ExternalLinks from './ExternalLinks';
+import ContactForm from './subcomponents/ContactForm';
+import ExternalLinks from '../ExternalLinks';
 
-const Contact = () => {
+const Contact: React.FC = () => {
   return (
     <div id="contact" className="w-full lg:h-screen">
       <div className="max-w-[1240px] m-auto px-2 py-16 w-full">

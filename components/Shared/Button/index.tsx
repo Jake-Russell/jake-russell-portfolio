@@ -4,9 +4,9 @@ import { ButtonProps } from './types';
 const Button: React.FC<ButtonProps> = ({
   isDisabled,
   isProcessing,
-  onClick,
   content,
   processingText,
+  onClick,
 }) => {
   return (
     <button
