@@ -1,6 +1,16 @@
-import React from "react";
+import React from 'react';
+import { InputProps } from './types';
 
-const Input = ({ label, id, type = "text", isTextArea, error, ...props }) => {
+const Input: React.FC<InputProps> = ({
+  id,
+  label,
+  type = 'text',
+  isTextArea = false,
+  error,
+  ...props
+}) => {
+  const placeholder = `Please enter your ${label.toLowerCase()}...`;
+
   return (
     <div className="flex flex-col py-2">
       <label htmlFor={id} className="uppercase text-sm py-2">
@@ -10,11 +20,11 @@ const Input = ({ label, id, type = "text", isTextArea, error, ...props }) => {
         <textarea
           id={id}
           rows={10}
-          placeholder={`Please enter your ${label.toLowerCase()}...`}
+          placeholder={placeholder}
           required
           {...props}
           className={`border-2 rounded-lg p-3 border-gray-300 ${
-            error && "border-red-500"
+            error && 'border-red-500'
           }`}
         />
       ) : (
@@ -22,11 +32,11 @@ const Input = ({ label, id, type = "text", isTextArea, error, ...props }) => {
           id={id}
           name={id}
           type={type}
-          placeholder={`Please enter your ${label.toLowerCase()}...`}
+          placeholder={placeholder}
           required
           {...props}
           className={`border-2 rounded-lg p-3 flex border-gray-300 ${
-            error && "border-red-500"
+            error && 'border-red-500'
           }`}
         />
       )}

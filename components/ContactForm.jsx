@@ -74,8 +74,8 @@ const ContactForm = () => {
     <form onSubmit={handleSubmit}>
       <div className="grid md:grid-cols-2 gap-4 w-full py-2">
         <Input
-          label={'Name'}
           id={'name'}
+          label={'Name'}
           onBlur={handleNameBlur}
           onChange={handleNameChange}
           value={nameValue}
@@ -83,8 +83,8 @@ const ContactForm = () => {
         />
 
         <Input
-          label={'Email'}
           id={'email'}
+          label={'Email'}
           type="email"
           onBlur={handleEmailBlur}
           onChange={handleEmailChange}
@@ -94,8 +94,8 @@ const ContactForm = () => {
       </div>
 
       <Input
-        label={'Subject'}
         id={'subject'}
+        label={'Subject'}
         onBlur={handleSubjectBlur}
         onChange={handleSubjectChange}
         value={subjectValue}
@@ -103,8 +103,8 @@ const ContactForm = () => {
       />
 
       <Input
-        label={'Message'}
         id={'message'}
+        label={'Message'}
         isTextArea
         onBlur={handleMessageBlur}
         onChange={handleMessageChange}

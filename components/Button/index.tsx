@@ -1,12 +1,5 @@
 import React from 'react';
-
-type ButtonProps = {
-  isDisabled: boolean;
-  isProcessing: boolean;
-  onClick: () => void;
-  content: string;
-  processingText: string;
-};
+import { ButtonProps } from './types';
 
 const Button: React.FC<ButtonProps> = ({
   isDisabled,
