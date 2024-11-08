@@ -1,11 +1,11 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
-import ExternalLinks from './ExternalLinks';
 
-const Navbar = () => {
+import ExternalLinks from '../ExternalLinks';
+
+const Navbar: React.FC = () => {
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
   const [navBg, setNavBg] = useState('#ecf0f3');

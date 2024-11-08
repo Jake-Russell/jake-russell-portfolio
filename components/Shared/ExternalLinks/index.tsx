@@ -1,10 +1,10 @@
-import Link from 'next/link';
 import React from 'react';
 import { AiOutlineMail } from 'react-icons/ai';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import Link from 'next/link';
 
-const ExternalLinks = () => {
+const ExternalLinks: React.FC = () => {
   return (
     <div className="flex items-center justify-between max-w-[330px] m-auto py-4">
       <Link href="https://www.linkedin.com/in/jcrussell1/">

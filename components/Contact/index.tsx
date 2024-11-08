@@ -6,7 +6,7 @@ import contactImage from '../../public/assets/star_trails_great_coxwell.jpg';
 
 import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
 import ContactForm from './subcomponents/ContactForm';
-import ExternalLinks from '../ExternalLinks';
+import ExternalLinks from '../Shared/ExternalLinks';
 
 const Contact: React.FC = () => {
   return (
