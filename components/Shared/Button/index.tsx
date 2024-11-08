@@ -3,10 +3,10 @@ import { ButtonProps } from './types';
 
 const Button: React.FC<ButtonProps> = ({
   content,
+  onClick,
   isDisabled = false,
   isProcessing = false,
   processingText,
-  onClick,
 }) => {
   return (
     <button
