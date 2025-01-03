@@ -1,6 +1,7 @@
 import React from 'react';
 
 import photographyImg from '../../public/assets/projects/photography.jpg';
+import portfolioImg from '../../public/assets/projects/portfolio.jpg';
 import cryptoImg from '../../public/assets/projects/crypto.jpg';
 import netflixImg from '../../public/assets/projects/netflix.jpg';
 import twitchImg from '../../public/assets/projects/twitch.jpg';
@@ -23,6 +24,12 @@ const Projects: React.FC = () => {
           subtitle="Pure HTML / CSS / JS / PHP"
           backgroundImage={photographyImg}
           projectUrl="/photography"
+        />
+        <ProjectItem
+          title="Portfolio"
+          subtitle="The website you are currently viewing!"
+          backgroundImage={portfolioImg}
+          projectUrl="/portfolio"
         />
         <ProjectItem
           title="Crypto App"
