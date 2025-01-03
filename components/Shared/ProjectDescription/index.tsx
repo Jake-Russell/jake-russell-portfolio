@@ -1,10 +1,11 @@
 import React from 'react';
 import { ProjectDescriptionProps } from './types';
-import Button from '../Button';
 import LinkButton from '../LinkButton';
 
 const ProjectDescription: React.FC<ProjectDescriptionProps> = ({
   description,
+  demoLink,
+  codeLink,
 }) => {
   const descriptionParts = description.split('\n');
 
@@ -17,16 +18,8 @@ const ProjectDescription: React.FC<ProjectDescriptionProps> = ({
         </p>
       ))}
       <div className="flex space-x-4 mt-4">
-        <LinkButton
-          content="Demo"
-          href="https://jakerussell.photography/index.html"
-          isExternal
-        />
-        <LinkButton
-          content="Code"
-          href="https://github.com/Jake-Russell/jake-russell-photography"
-          isExternal
-        />
+        {demoLink && <LinkButton content="Demo" href={demoLink} isExternal />}
+        {codeLink && <LinkButton content="Code" href={codeLink} isExternal />}
       </div>
     </div>
   );
