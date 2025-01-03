@@ -17,6 +17,7 @@ const Photography: React.FC = () => {
       <Hero
         imageSrc={photographyImg}
         title="Photography Showcase"
+        altText="Screenshot the www.jakerussell.photography homepage, showing a barn with star trails behind it"
         subtitle="Pure HTML / CSS / JS / PHP"
       />
 
