@@ -50,7 +50,7 @@ const handler = async (req, res) => {
     }
   }
 
-  console.log(`Returnign 400 as not POST`);
+  console.log(`Returning 400 as not POST`);
   return res.status(400).json({ message: 'Bad request ' });
 };
 

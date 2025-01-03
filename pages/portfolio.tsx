@@ -9,8 +9,7 @@ import portfolioImg from '@/public/assets/projects/portfolio.jpg';
 
 const Portfolio: React.FC = () => {
   const description = `This project is the website you are viewing right now! Built using Next.js, React, Tailwind CSS, and TypeScript, the purpose of this project is to showcase my projects and skills.
-  It also marks my introduction to Next.js, a React framework that I have come to love for its speed, simplicity, and ease of use. I also took this opportunity to learn Tailwind CSS, a utility-first CSS framework that has helped me to quickly and consistently style this website.
-`;
+  It also marks my introduction to Next.js, a React framework that I have come to love for its speed, simplicity, and ease of use. I also took this opportunity to learn Tailwind CSS, a utility-first CSS framework that has helped me to quickly and consistently style this website.`;
 
   const technologies = ['Next.js', 'React', 'Tailwind', 'TypeScript'];
 

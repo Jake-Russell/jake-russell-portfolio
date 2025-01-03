@@ -1,10 +1,8 @@
 import React from 'react';
 
-import photographyImg from '../../public/assets/projects/photography.jpg';
-import portfolioImg from '../../public/assets/projects/portfolio.jpg';
-import cryptoImg from '../../public/assets/projects/crypto.jpg';
-import netflixImg from '../../public/assets/projects/netflix.jpg';
-import twitchImg from '../../public/assets/projects/twitch.jpg';
+import photographyImg from '@/public/assets/projects/photography.jpg';
+import portfolioImg from '@/public/assets/projects/portfolio.jpg';
+import dealOrNoDealImg from '@/public/assets/projects/deal-or-no-deal.jpg';
 
 import ProjectItem from './subcomponents/ProjectItem';
 
@@ -32,19 +30,9 @@ const Projects: React.FC = () => {
           projectUrl="/portfolio"
         />
         <ProjectItem
-          title="Crypto App"
-          backgroundImage={cryptoImg}
-          projectUrl="/crypto"
-        />
-        <ProjectItem
-          title="Netflix App"
-          backgroundImage={netflixImg}
-          projectUrl="/netflix"
-        />
-        <ProjectItem
-          title="Twitch App"
-          backgroundImage={twitchImg}
-          projectUrl="/twitch"
+          title="Deal or No Deal Scoreboard"
+          backgroundImage={dealOrNoDealImg}
+          projectUrl="/deal-or-no-deal"
         />
       </div>
     </div>
