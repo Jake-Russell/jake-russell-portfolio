@@ -9,35 +9,36 @@ import ProjectItem from './subcomponents/ProjectItem';
 
 const Projects: React.FC = () => {
   return (
-    <div id="projects" className="w-full">
-      <div className="max-w-[1240px] mx-auto px-2 py-32">
-        <p className="text-xl tracking-widest uppercase text-[#5651e5]">
-          Projects
-        </p>
-        <h2 className="py-4">What I&apos;ve Built</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          <ProjectItem
-            title="Photography Showcase"
-            subtitle="Pure HTML / CSS / JS / PHP"
-            backgroundImage={photographyImg}
-            projectUrl="/photography"
-          />
-          <ProjectItem
-            title="Crypto App"
-            backgroundImage={cryptoImg}
-            projectUrl="/crypto"
-          />
-          <ProjectItem
-            title="Netflix App"
-            backgroundImage={netflixImg}
-            projectUrl="/netflix"
-          />
-          <ProjectItem
-            title="Twitch App"
-            backgroundImage={twitchImg}
-            projectUrl="/twitch"
-          />
-        </div>
+    <div
+      id="projects"
+      className="max-w-[1240px] m-auto min-h-screen h-auto flex flex-col justify-center px-4 pt-24"
+    >
+      <p className="text-xl tracking-widest uppercase text-[#5651e5]">
+        Projects
+      </p>
+      <h2 className="py-4">What I&apos;ve Built</h2>
+      <div className="grid md:grid-cols-2 gap-8">
+        <ProjectItem
+          title="Photography Showcase"
+          subtitle="Pure HTML / CSS / JS / PHP"
+          backgroundImage={photographyImg}
+          projectUrl="/photography"
+        />
+        <ProjectItem
+          title="Crypto App"
+          backgroundImage={cryptoImg}
+          projectUrl="/crypto"
+        />
+        <ProjectItem
+          title="Netflix App"
+          backgroundImage={netflixImg}
+          projectUrl="/netflix"
+        />
+        <ProjectItem
+          title="Twitch App"
+          backgroundImage={twitchImg}
+          projectUrl="/twitch"
+        />
       </div>
     </div>
   );
