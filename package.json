@@ -1,6 +1,6 @@
 {
   "name": "jake-russell-portfolio",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "framer-motion": "^10.16.4",
     "next": "^14.0.2",
     "nodemailer": "^6.9.14",

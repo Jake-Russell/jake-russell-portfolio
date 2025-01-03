@@ -1,5 +1,4 @@
 import React from 'react';
-import { RiRadioButtonFill } from 'react-icons/ri';
 import Link from 'next/link';
 
 import photographyImg from '../public/assets/projects/photography.jpg';
