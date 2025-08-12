@@ -14,14 +14,14 @@
     "next": "^14.0.2",
     "nodemailer": "^6.9.14",
     "react": "^18",
-    "react-dom": "^18",
+    "react-dom": "^19",
     "react-hook-form": "^7.48.2",
     "react-icons": "^4.11.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react-dom": "^19",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.2",
