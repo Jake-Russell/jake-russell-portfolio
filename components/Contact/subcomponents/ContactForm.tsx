@@ -116,6 +116,7 @@ const ContactForm: React.FC = () => {
 
       <Button
         isDisabled={!isFormValid}
+        onClick={handleSubmit}
         content="Send Message"
         processingText="Submitting..."
         isProcessing={isFormSubmitting}
