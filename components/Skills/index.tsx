@@ -1,79 +1,95 @@
 import React from 'react';
 import Image from 'next/image';
-
 import { SkillCategory } from './types';
+
+// Import all skill images
+import jsImg from '../../public/assets/skills/languages/javascript.png';
+import tsImg from '../../public/assets/skills/languages/typescript.png';
+import htmlImg from '../../public/assets/skills/languages/html.png';
+import cssImg from '../../public/assets/skills/languages/css.png';
+import scssImg from '../../public/assets/skills/languages/scss.png';
+import pythonImg from '../../public/assets/skills/languages/python.png';
+import javaImg from '../../public/assets/skills/languages/java.png';
+import kotlinImg from '../../public/assets/skills/languages/kotlin.png';
+import cppImg from '../../public/assets/skills/languages/cplusplus.png';
+import csharpImg from '../../public/assets/skills/languages/csharp.png';
+import swiftImg from '../../public/assets/skills/languages/swift.png';
+import haskellImg from '../../public/assets/skills/languages/haskell.png';
+import phpImg from '../../public/assets/skills/languages/php.png';
+import bashImg from '../../public/assets/skills/languages/bash.png';
+
+import reactImg from '../../public/assets/skills/frameworks/react.png';
+import nextImg from '../../public/assets/skills/frameworks/nextjs.png';
+import angularImg from '../../public/assets/skills/frameworks/angular.png';
+import tailwindImg from '../../public/assets/skills/frameworks/tailwind.png';
+import storybookImg from '../../public/assets/skills/frameworks/storybook.png';
+import laravelImg from '../../public/assets/skills/frameworks/laravel.png';
+import nodeImg from '../../public/assets/skills/frameworks/nodejs.png';
+import sitecoreImg from '../../public/assets/skills/frameworks/sitecore.png';
+import tensorflowImg from '../../public/assets/skills/frameworks/tensorflow.png';
+
+import githubImg from '../../public/assets/skills/tools/github.png';
+import gitlabImg from '../../public/assets/skills/tools/gitlab.png';
+import gitImg from '../../public/assets/skills/tools/git.png';
+import dockerImg from '../../public/assets/skills/tools/docker.png';
+import figmaImg from '../../public/assets/skills/tools/figma.png';
+import arduinoImg from '../../public/assets/skills/tools/arduino.png';
+
+import awsImg from '../../public/assets/skills/cloud/aws.png';
+import firebaseImg from '../../public/assets/skills/cloud/firebase.png';
+import terraformImg from '../../public/assets/skills/cloud/terraform.png';
 
 const skillCategories: SkillCategory[] = [
   {
     title: 'Languages',
     skills: [
-      // Web languages
-      { name: 'JavaScript', image: '/assets/skills/languages/javascript.png' },
-      { name: 'TypeScript', image: '/assets/skills/languages/typescript.png' },
-      { name: 'HTML', image: '/assets/skills/languages/html.png' },
-      { name: 'CSS', image: '/assets/skills/languages/css.png' },
-      { name: 'SCSS', image: '/assets/skills/languages/scss.png' },
-
-      // General-purpose languages
-      { name: 'Python', image: '/assets/skills/languages/python.png' },
-      { name: 'Java', image: '/assets/skills/languages/java.png' },
-      { name: 'Kotlin', image: '/assets/skills/languages/kotlin.png' },
-      { name: 'C++', image: '/assets/skills/languages/cplusplus.png' },
-      { name: 'C#', image: '/assets/skills/languages/csharp.png' },
-      { name: 'Swift', image: '/assets/skills/languages/swift.png' },
-      { name: 'Haskell', image: '/assets/skills/languages/haskell.png' },
-      { name: 'PHP', image: '/assets/skills/languages/php.png' },
-
-      // Shell/Command-line languages
-      { name: 'Bash', image: '/assets/skills/languages/bash.png' },
+      { name: 'JavaScript', image: jsImg },
+      { name: 'TypeScript', image: tsImg },
+      { name: 'HTML', image: htmlImg },
+      { name: 'CSS', image: cssImg },
+      { name: 'SCSS', image: scssImg },
+      { name: 'Python', image: pythonImg },
+      { name: 'Java', image: javaImg },
+      { name: 'Kotlin', image: kotlinImg },
+      { name: 'C++', image: cppImg },
+      { name: 'C#', image: csharpImg },
+      { name: 'Swift', image: swiftImg },
+      { name: 'Haskell', image: haskellImg },
+      { name: 'PHP', image: phpImg },
+      { name: 'Bash', image: bashImg },
     ],
   },
   {
     title: 'Frameworks & Libraries',
     skills: [
-      // Frontend frameworks and libraries
-      { name: 'React', image: '/assets/skills/frameworks/react.png' },
-      { name: 'Next.js', image: '/assets/skills/frameworks/nextjs.png' },
-      { name: 'Angular', image: '/assets/skills/frameworks/angular.png' },
-      { name: 'Tailwind', image: '/assets/skills/frameworks/tailwind.png' },
-      { name: 'Storybook', image: '/assets/skills/frameworks/storybook.png' },
-
-      // Backend frameworks
-      { name: 'Laravel', image: '/assets/skills/frameworks/laravel.png' },
-      { name: 'Node.js', image: '/assets/skills/frameworks/nodejs.png' },
-      { name: 'Sitecore', image: '/assets/skills/frameworks/sitecore.png' },
-
-      // Data science and machine learning libraries
-      { name: 'TensorFlow', image: '/assets/skills/frameworks/tensorflow.png' },
+      { name: 'React', image: reactImg },
+      { name: 'Next.js', image: nextImg },
+      { name: 'Angular', image: angularImg },
+      { name: 'Tailwind', image: tailwindImg },
+      { name: 'Storybook', image: storybookImg },
+      { name: 'Laravel', image: laravelImg },
+      { name: 'Node.js', image: nodeImg },
+      { name: 'Sitecore', image: sitecoreImg },
+      { name: 'TensorFlow', image: tensorflowImg },
     ],
   },
   {
     title: 'Tools & Platforms',
     skills: [
-      // Version control and collaboration
-      { name: 'GitHub', image: '/assets/skills/tools/github.png' },
-      { name: 'GitLab', image: '/assets/skills/tools/gitlab.png' },
-      { name: 'Git', image: '/assets/skills/tools/git.png' },
-
-      // Containerization and DevOps tools
-      { name: 'Docker', image: '/assets/skills/tools/docker.png' },
-
-      // Design tools
-      { name: 'Figma', image: '/assets/skills/tools/figma.png' },
-
-      // Hardware tools
-      { name: 'Arduino', image: '/assets/skills/tools/arduino.png' },
+      { name: 'GitHub', image: githubImg },
+      { name: 'GitLab', image: gitlabImg },
+      { name: 'Git', image: gitImg },
+      { name: 'Docker', image: dockerImg },
+      { name: 'Figma', image: figmaImg },
+      { name: 'Arduino', image: arduinoImg },
     ],
   },
   {
     title: 'Cloud Platforms & Services',
     skills: [
-      // Cloud platforms and services
-      { name: 'AWS', image: '/assets/skills/cloud/aws.png' },
-      { name: 'Firebase', image: '/assets/skills/cloud/firebase.png' },
-
-      // Infrastructure as Code (IaC)
-      { name: 'Terraform', image: '/assets/skills/cloud/terraform.png' },
+      { name: 'AWS', image: awsImg },
+      { name: 'Firebase', image: firebaseImg },
+      { name: 'Terraform', image: terraformImg },
     ],
   },
 ];
