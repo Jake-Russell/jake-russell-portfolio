@@ -1,6 +1,8 @@
+import { StaticImageData } from "next/image";
+
 type Skill = {
   name: string;
-  image: string;
+  image: StaticImageData;
 };
 
 export type SkillCategory = {
