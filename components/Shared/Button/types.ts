@@ -1,6 +1,6 @@
 export type ButtonProps = {
   content: string;
-  onClick: () => void;
+  onClick: any; // TODO: Type this correctly
   isDisabled?: boolean;
   isProcessing?: boolean;
   processingText?: string;
