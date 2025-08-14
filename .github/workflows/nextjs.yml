@@ -53,6 +53,7 @@ jobs:
           node-version: '22'
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Setup Pages
+        if: ${{ github.event_name != 'pull_request' }}
         uses: actions/configure-pages@v5
         with:
           # Automatically inject basePath in your Next.js configuration file and disable
@@ -77,13 +78,14 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
+        if: ${{ github.event_name != 'pull_request' }}
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
   # Deployment job
   deploy:
-    if: ${{ github.event_name != 'pull_request' }} # Skip deploy on PRs
+    if: ${{ github.event_name != 'pull_request' }}
     needs: build
     runs-on: ubuntu-latest
     environment:
